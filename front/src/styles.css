@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --color_one: rgb(116, 145, 75);
+}
+.app-shell {
+  height: 100vh;
+}
+
+.main-sidebar {
+  width: 260px; 
+  border-right: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.page-content {
+  background-color: #ebebeb; 
+  display: flex;
+  flex-direction: column;
+}
+
+.router-wrapper {
+  padding: 40px; 
+  max-width: 1000px; 
+  margin: 0 auto; 
+  width: 100%;
+}

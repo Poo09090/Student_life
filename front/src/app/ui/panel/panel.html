@@ -1,0 +1,15 @@
+<div class="sidebar-header">
+  <mat-icon>account_balance_wallet</mat-icon>
+  <span>СТУД-ПЛАНЕР</span>
+</div>
+
+<mat-nav-list>
+  @for (item of navItems(); track item.path) {
+    <a mat-list-item 
+       [routerLink]="item.path" 
+       routerLinkActive="active-item">
+      <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+      <span matListItemTitle>{{ item.label }}</span>
+    </a>
+  }
+</mat-nav-list>
