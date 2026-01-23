@@ -1,0 +1,113 @@
+/*переменные ушли в лютый отказ
+
+/* 1. Общий фон и центрирование */
+body {
+  background-color: var(--bg-page);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+
+.main-layout {
+  width: 100%;
+  max-width: 800px; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. ШАПКА */
+.budget-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.budget-title {
+  font-size: 3rem; 
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap; /*gthtyjcs */
+}
+
+.all_analise {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.view {
+  display: flex;
+  gap: 15px;
+}
+
+.all_income, .all_expences {
+  flex: 1;
+
+  color: #000; /* Черный текст */
+  padding: 20px;
+  border-radius: 18px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #7cb36d;
+}
+
+/* 4. ПОЛОСА БАЛАНСА */
+.analise {
+  border-radius: 40px;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: flex-end; /* Текст прижат вправо */
+  font-size: 1.2rem;
+  color: #000;
+  background-color: #3b82f6;
+}
+
+/* 5. ТАБЫ (РАСХОДЫ / ДОХОДЫ) */
+.tabs-wrapper {
+  position: relative;
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.tab-btn {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 16px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.tab-btn.active {
+  color:#3b82f6;
+}
+
+/* Синий индикатор внизу табов */
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 4px;
+  background-color: var(--blue-tabs);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 3;
+}

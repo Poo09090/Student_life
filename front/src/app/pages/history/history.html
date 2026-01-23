@@ -1,0 +1,36 @@
+<div class="history-container">
+  <header>
+    <h1>История операций</h1>
+    <p>Месяц: {{ dataService.selectedMonth() }}</p>
+  </header>
+
+  <div class="timeline">
+    @for (group of groupedTransactions(); track group[0]) {
+      <div class="date-group">
+        <h3 class="date-title">{{ group[0] | date:'d MMMM' }}</h3>
+        
+        <div class="transaction-list">
+          @for (item of group[1]; track item.id) {
+            <div class="transaction-item">
+              <div class="icon-circle">
+                <mat-icon>receipt</mat-icon>
+              </div>
+              <div class="info">
+                <span class="title">{{ item.title }}</span>
+                <span class="category">Категория: {{ get_transactions_category(item.categoryId).title }}</span>
+              </div>
+              <div class="amount" [class.minus]="true">
+                {{ item.amount }} ₽
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    } @empty {
+      <div class="empty-state">
+        <mat-icon>search_off</mat-icon>
+        <p>В этом месяце операций еще не было</p>
+      </div>
+    }
+  </div>
+</div>

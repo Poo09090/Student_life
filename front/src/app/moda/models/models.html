@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Новая категория</h2>
+
+<mat-dialog-content class="dialog-form">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Название</mat-label>
+    <input matInput [(ngModel)]="data.title" placeholder="Например: Аренда">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>План на месяц</mat-label>
+    <input matInput type="number" [(ngModel)]="data.planned">
+    <span matSuffix>₽</span>
+  </mat-form-field>
+
+  <p>Выберите иконку:</p>
+  <div class="icon-grid">
+    @for (icon of iconList; track icon) {
+      <mat-icon 
+        [class.selected]="data.icon === icon"
+        (click)="data.icon = icon">
+        {{icon}}
+      </mat-icon>
+    }
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Отмена</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data">Добавить</button>
+</mat-dialog-actions>

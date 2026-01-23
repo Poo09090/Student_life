@@ -1,0 +1,32 @@
+<div class="budget-header">
+  <button mat-icon-button (click)="dataService.changeMonth('prev')">
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+
+  <h1 class="budget-title">{{ dataService.currentBudgetName() }}</h1>
+
+  <button mat-icon-button (click)="dataService.changeMonth('next')">
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
+</div>
+
+<div class="all_analise">
+<div class="view">
+    <div class="all_expences"><span>Общий расход:</span><p>{{data.totalExpenses()}}</p></div>
+    <div class="all_income"><span>Общий доход:</span><p>{{data.totalIncome()}}</p></div>
+</div>
+<div class="analise"><p>свободные деньги:</p><p>{{data.totalBalance()}}</p></div>
+</div>
+  <div class="tabs-wrapper">
+    <div class="indicator" id="indicator"></div>
+    
+    <button class="tab-btn" [class.active] = "page_category() == 'expense' " (click)="page_category.set('expense')">РАСХОДЫ</button>
+    <button class="tab-btn" [class.active] = "page_category() == 'income' " (click)="page_category.set('income')">ДОХОДЫ</button>
+  </div>
+
+   @for (os of cards();  track os.id) {
+      
+      <app-cards [card_info]="os" [transaction_info]="data.get_transactions()()"></app-cards>
+    }
+
+    <app-buttons [text] = 'text()' (click)="openAddDialog()"></app-buttons>

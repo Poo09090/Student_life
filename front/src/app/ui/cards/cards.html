@@ -1,0 +1,43 @@
+
+
+  <div class="card">
+    
+    <div class="icon-box">
+      <mat-icon>{{card_info()?.icon}}</mat-icon>
+    </div>
+
+    <div class="content">
+      <div class="header">
+        <div class="title">{{card_info()?.title}}</div>
+        
+        <span class="material-icons link-icon">open_in_new</span>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-group left">
+          <span class="label">План</span>
+          <span class="value">{{card_info()?.planned}}</span>
+        </div>
+        <div class="stat-group center">
+          <span class="label">@if(card_info()!.type == "expense"){
+            Потрачено
+          }
+          @else {
+            Получено
+          }
+          </span>
+          <span class="value">{{summ_of_transactions_category()}}</span>
+        </div>
+        <div class="stat-group right">
+          <span class="label">Остаток</span>
+          <span class="value">{{(card_info()?.planned ?? 0) - summ_of_transactions_category()}}</span>
+        </div>
+      </div>
+      <div class="progress-container">
+            <div class="progress-bar" [style.width.%]="((card_info()!.planned - remainder())/card_info()!.planned ) * 100"> </div>
+      </div>
+    
+      
+    </div>
+  </div>
+
